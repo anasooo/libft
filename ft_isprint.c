@@ -6,15 +6,15 @@
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:19:58 by asodor            #+#    #+#             */
-/*   Updated: 2023/11/01 15:20:01 by asodor           ###   ########.fr       */
+/*   Updated: 2023/11/08 13:13:00 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int p)
+int	ft_isprint(int p)
 {
-    if(p >= 32 && p < 127)
-    return (1);
-    return (0);
+	if (p >= 32 && p < 127)
+		return (1);
+	return (0);
 }
