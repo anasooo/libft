@@ -6,7 +6,7 @@
 #    By: asodor <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 22:35:33 by asodor            #+#    #+#              #
-#    Updated: 2023/11/14 23:07:26 by asodor           ###   ########.fr        #
+#    Updated: 2023/11/17 22:25:25 by asodor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,11 +45,15 @@ SRCS	=	ft_putnbr_fd.c\
 			ft_isalpha.c\
 			ft_isalnum.c\
 
-
 SRCS_BONUS	=	ft_lstnew.c\
 				ft_lstadd_front.c\
 				ft_lstsize.c\
 				ft_lstlast.c\
+				ft_lstadd_back.c\
+				ft_lstdelone.c\
+				ft_lstclear.c\
+				ft_lstiter.c\
+				ft_lstmap.c\
 
 NAME	= libft.a
 
@@ -71,7 +75,7 @@ ${NAME}:	${OBJS}
 
 all:		${NAME}
 
-bonus:		${OBJS_BONUS}
+bonus:		${OBJS_BONUS} ${NAME}
 			ar rcs ${NAME} ${OBJS_BONUS}
 
 clean:
