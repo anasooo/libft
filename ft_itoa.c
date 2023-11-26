@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	calc(int value)
+static int	ft_calc(int value)
 {
 	int	len;
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	int		sign;
 
 	sign = 0;
-	len = calc(n);
+	len = ft_calc(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	str = malloc(len + 1);

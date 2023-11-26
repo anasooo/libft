@@ -6,7 +6,7 @@
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:37:26 by asodor            #+#    #+#             */
-/*   Updated: 2023/11/10 21:40:19 by asodor           ###   ########.fr       */
+/*   Updated: 2023/11/22 09:55:22 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	len_s;
 
 	i = 0;
+	if (dstsize == 0 && dst == NULL)
+		return (ft_strlen(src));
 	len_d = ft_strlen(dst);
 	len_s = ft_strlen(src);
 	if (dstsize <= len_d)

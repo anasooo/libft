@@ -6,7 +6,7 @@
 #    By: asodor <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 22:35:33 by asodor            #+#    #+#              #
-#    Updated: 2023/11/17 22:25:25 by asodor           ###   ########.fr        #
+#    Updated: 2023/11/24 14:51:42 by asodor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,19 +45,19 @@ SRCS	=	ft_putnbr_fd.c\
 			ft_isalpha.c\
 			ft_isalnum.c\
 
-SRCS_BONUS	=	ft_lstnew.c\
-				ft_lstadd_front.c\
-				ft_lstsize.c\
-				ft_lstlast.c\
-				ft_lstadd_back.c\
-				ft_lstdelone.c\
-				ft_lstclear.c\
-				ft_lstiter.c\
-				ft_lstmap.c\
+BONUS_SRCS	=	ft_lstnew_bonus.c\
+				ft_lstadd_front_bonus.c\
+				ft_lstsize_bonus.c\
+				ft_lstlast_bonus.c\
+				ft_lstadd_back_bonus.c\
+				ft_lstdelone_bonus.c\
+				ft_lstclear_bonus.c\
+				ft_lstiter_bonus.c\
+				ft_lstmap_bonus.c\
 
 NAME	= libft.a
 
-CC		= gcc
+CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror
 
@@ -65,23 +65,22 @@ RM		= rm -f
 
 OBJS	= ${SRCS:.c=.o}
 
-OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
-
-%.o : %.c
-			${CC} ${CFLAGS} -c $< -o $@
+BONUS_OBJS	= ${BONUS_SRCS:.c=.o}
 
 ${NAME}:	${OBJS}
 			ar rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
-bonus:		${OBJS_BONUS} ${NAME}
-			ar rcs ${NAME} ${OBJS_BONUS}
+bonus:		${BONUS_OBJS}
 
+${BONUS_OBJS}:	${BONUS_SRCS}
+			${CC} ${CFLAGS} -c $^
+			ar rcs ${NAME} ${BONUS_OBJS}
 clean:
-			${RM} ${OBJS} ${OBJS_BONUS}
+			${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
-			${RM} ${NAME} ${OBJS_BONUS}
+			${RM} ${NAME}
 
 re:			fclean all

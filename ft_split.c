@@ -6,7 +6,7 @@
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:24:45 by asodor            #+#    #+#             */
-/*   Updated: 2023/11/13 20:38:29 by asodor           ###   ########.fr       */
+/*   Updated: 2023/11/24 14:44:34 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	count_elements(char const *s, char c)
 {
 	size_t	count;
 
+	if (!s)
+		return (0);
 	count = 0;
 	while (*s)
 	{
@@ -53,12 +55,12 @@ static char	*allocate(char const *s, char c)
 	return (word);
 }
 
-static void	*free_split(char **str, size_t *j)
+static void	*free_split(char **str, size_t j)
 {
 	size_t	k;
 
 	k = 0;
-	while (k < *j)
+	while (k < j)
 	{
 		free(str[k]);
 		k++;
@@ -78,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	str = malloc(sizeof(char *) * (count_elements(s, c) + 1));
 	if (!str)
 		return (NULL);
-	while (s[i])
+	while (s && s[i])
 	{
 		while (s[i] && s[i] == c)
 			i++;
@@ -86,11 +88,11 @@ char	**ft_split(char const *s, char c)
 		{
 			str[j] = allocate(&s[i], c);
 			if (!str[j++])
-				return (free_split(str, &j));
+				return (free_split(str, j));
 		}
 		while (s[i] && s[i] != c)
 			i++;
 	}
-	str[j] = 0;
+	str[j] = NULL;
 	return (str);
 }

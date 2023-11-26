@@ -6,7 +6,7 @@
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 03:02:40 by asodor            #+#    #+#             */
-/*   Updated: 2023/11/15 03:11:15 by asodor           ###   ########.fr       */
+/*   Updated: 2023/11/22 15:44:38 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (s)
 	{
-		while (*s)
-		{
-			write (fd, s, 1);
-			s++;
-		}
-		write (fd, "\n", 1);
+		write(fd, s, ft_strlen(s));
+		write(fd, "\n", 1);
 	}
 }

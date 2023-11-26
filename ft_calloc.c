@@ -6,7 +6,7 @@
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:21:16 by asodor            #+#    #+#             */
-/*   Updated: 2023/11/11 14:45:04 by asodor           ###   ########.fr       */
+/*   Updated: 2023/11/20 22:38:01 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
 
-	if (count * size >= SIZE_MAX)
+	if (size != 0 && count >= SIZE_MAX / size)
 		return (NULL);
 	p = malloc(count * size);
 	if (p)
